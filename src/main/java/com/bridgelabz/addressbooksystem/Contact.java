@@ -10,6 +10,7 @@ public class Contact {
     private long zip;
     private long phoneNumber;
 
+
     public Contact(String firstName, String lastName, String address, String city, String state, String email, long zip, long phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,6 +21,11 @@ public class Contact {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
     }
+
+    public Contact() {
+
+    }
+
 
     public String getFirstName() {
         return firstName;
