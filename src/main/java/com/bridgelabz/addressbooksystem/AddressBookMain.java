@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class AddressBookMain {
 
 
-    static String fname;
+     static String fname;
     static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -72,8 +72,15 @@ public class AddressBookMain {
                 choice = s.nextInt();
                 switch (choice) {
                     case 1:
-                        AddressBook.addContact();
+                        System.out.print("Add Contact  \n");
+                        System.out.print("Enter First Name :");
+                        String fName = s.next();
 
+                        if (AddressBook.checkDuplicate(fName, contact) == false) {
+                            AddressBook.addContact();
+                        } else {
+                            System.out.println("Already exists");
+                        }
                         break;
                     case 2:
                         AddressBook.displayAll();
@@ -82,6 +89,9 @@ public class AddressBookMain {
                         AddressBook.editContact();
                         break;
                     case 4:
+                        AddressBook.addMultipleContact() ;
+                        break;
+                    case 5:
                         AddressBook.deleteContact();
                         break;
                     default:
@@ -92,7 +102,7 @@ public class AddressBookMain {
                 choice = s.nextInt();
             } while (choice != 0);
         } else
-            System.out.println("Invalid AddressBook Name!Not exist");
+            System.out.println("Invalid AddressBook Name Not exist");
     }
 
 }
