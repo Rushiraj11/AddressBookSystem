@@ -50,6 +50,37 @@ public class AddressBook {
             }
 
         }
+
+    public static void editContact() {
+        System.out.println("Enter first name that you want to Edit:");
+        String firstName = sc.next();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                Contact c = contactList.get(i);
+                System.out.print("Enter new First Name: ");
+                c.setFirstName(sc.next());
+                System.out.print("Enter  new Last Name : ");
+                c.setFirstName(sc.next());
+                System.out.print("Enter new City : ");
+                c.setCity(sc.next());
+                System.out.print("Enter new State : ");
+                c.setState(sc.next());
+                System.out.print("Enter new zip : ");
+                c.setZip(sc.nextLong());
+                System.out.print("Enter new PhoneNumber: ");
+                c.setPhoneNumber(sc.nextLong());
+                System.out.print("Enter new Email ID : ");
+                c.setEmail(sc.next());
+                contactList.set(i, c);
+                System.out.println("Edited Successfully!");
+            } else if (firstName != (contactList.get(i).getFirstName())) {
+                System.out.println("Not Found!");
+            }
+        }
     }
+
+
+}
 
 
