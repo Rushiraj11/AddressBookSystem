@@ -6,6 +6,7 @@ public class AddressBook {
 
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Contact> contactList = new ArrayList<Contact>();
+
     public static void addContact() {
         Contact contact = new Contact();
 
@@ -43,13 +44,7 @@ public class AddressBook {
 
         contactList.add(contact); //adding list to contact from user
 
-            for (Contact c : contactList) {  // displaying contact
-                System.out.println("\nFirst Name: " + c.getFirstName() + "\t Last Name: " + c.getLastName()
-                        + "\n Address: " + c.getAddress() + "  " +"\n city: "+ c.getCity() + "  " +"\n State: "+ c.getState()
-                        + "\n Phone Number: " + c.getPhoneNumber() + "\tEmail:" + c.getEmail());
-            }
-
-        }
+    }
 
     public static void editContact() {
         System.out.println("Enter first name that you want to Edit:");
@@ -79,6 +74,7 @@ public class AddressBook {
             }
         }
     }
+
     public static void deleteContact() {
         System.out.println("Enter first name that you want to Delete:");
         String firstName = sc.next();
@@ -93,6 +89,27 @@ public class AddressBook {
         }
     }
 
+
+    public static void addMultipleContact() {
+        System.out.println("Enter number of contacts to add");
+        int number = sc.nextInt();
+        for (int i = 0; i < number; i++) {
+            addContact();
+        }
+    }
+
+    public static void displayAll() {
+        boolean is_Empty = contactList.isEmpty();
+        if (is_Empty == true)
+            System.out.println("Array List is Empty");
+        else
+            for (Contact c : contactList) {
+                System.out.println("Contact Details are :-\n" + c.getFirstName() + "\n" + c.getLastName() + "\n"
+                        + c.getAddress() + "\n" + c.getCity() + " \n" + c.getState() + " \n" + c.getPhoneNumber() + " \n"
+                        + c.getZip() + " \n" + c.getEmail());
+            }
+
+    }
 }
 
 
